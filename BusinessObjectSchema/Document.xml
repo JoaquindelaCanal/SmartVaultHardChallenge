@@ -15,7 +15,7 @@
     FilePath TEXT,
     Length INTEGER,
     AccountId INTEGER,
-    CreatedOn TEXT
+    CreatedOn DATETIME DEFAULT CURRENT_TIMESTAMP
     );
   </script>
 </businessObject>

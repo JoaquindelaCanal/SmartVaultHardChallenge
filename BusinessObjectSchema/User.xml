@@ -19,7 +19,7 @@
     AccountId INTEGER,
     Username TEXT,
     Password TEXT,
-    CreatedOn TEXT
+    CreatedOn DATETIME DEFAULT CURRENT_TIMESTAMP
     );
   </script>
 </businessObject>

@@ -3,6 +3,7 @@
 using Microsoft.Extensions.Configuration;
 
 using SmartVault.Library;
+using SmartVault.Domain.Interfaces;
 
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,11 @@ using System.Xml.Serialization;
 
 namespace SmartVault.DataGeneration.Infrastructure
 {
-    public class DatabaseService : IDisposable
+    public class DataGenerationRepository : IDataGenerationRepository, IDisposable
     {
         private readonly SQLiteConnection _connection;
 
-        public DatabaseService(string connectionString)
+        public DataGenerationRepository(string connectionString)
         {
             _connection = new SQLiteConnection(connectionString);
             _connection.Open();

@@ -9,7 +9,7 @@
     CREATE TABLE Account (
     Id INTEGER PRIMARY KEY,
     Name TEXT,
-    CreatedOn TEXT
+    CreatedOn DATETIME DEFAULT CURRENT_TIMESTAMP
     );
   </script>
 </businessObject>

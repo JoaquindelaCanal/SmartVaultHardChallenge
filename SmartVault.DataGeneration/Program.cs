@@ -43,7 +43,7 @@ namespace SmartVault.DataGeneration
             var documentPath = Path.Combine(Directory.GetCurrentDirectory(), "TestDoc.txt");
             File.WriteAllText(documentPath, GenerateTestDocument());
 
-            using (var dbService = new DatabaseService(connectionString))
+            using (var dbService = new DataGenerationRepository(connectionString))
             {
                 dbService.InitializeDatabase(databaseFileName);
 

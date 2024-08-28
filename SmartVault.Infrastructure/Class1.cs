@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain
+namespace SmartVault.Infrastructure
 {
     public class Class1
     {

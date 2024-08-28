@@ -39,22 +39,59 @@ namespace SmartVault.DataGeneration.Infrastructure
             }
         }
 
-        public void InsertUser(int id, string firstName, string lastName, DateTime dateOfBirth, int accountId, string username, string password)
+        public void InsertUsers(IEnumerable<dynamic> users)
         {
-            var sql = "INSERT INTO User (Id, FirstName, LastName, DateOfBirth, AccountId, Username, Password) VALUES (@Id, @FirstName, @LastName, @DateOfBirth, @AccountId, @Username, @Password)";
-            _connection.Execute(sql, new { Id = id, FirstName = firstName, LastName = lastName, DateOfBirth = dateOfBirth, AccountId = accountId, Username = username, Password = password });
+            using (var transaction = _connection.BeginTransaction())
+            {
+                var sql = "INSERT INTO User (Id, FirstName, LastName, DateOfBirth, AccountId, Username, Password) VALUES (@Id, @FirstName, @LastName, @DateOfBirth, @AccountId, @Username, @Password)";
+                try
+                {
+                    _connection.Execute(sql, users, transaction);
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw ex;
+                }
+            }
         }
 
-        public void InsertAccount(int id, string name)
+        public void InsertAccounts(IEnumerable<dynamic> accounts)
         {
-            var sql = "INSERT INTO Account (Id, Name) VALUES (@Id, @Name)";
-            _connection.Execute(sql, new { Id = id, Name = name });
+            using (var transaction = _connection.BeginTransaction())
+            {
+                var sql = "INSERT INTO Account (Id, Name) VALUES (@Id, @Name)";
+
+                try
+                {
+                    _connection.Execute(sql, accounts, transaction);
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw ex;
+                }
+            }
         }
 
-        public void InsertDocument(int id, string name, string filePath, long length, int accountId)
+        public void InsertDocuments(IEnumerable<dynamic> documents)
         {
-            var sql = "INSERT INTO Document (Id, Name, FilePath, Length, AccountId) VALUES (@Id, @Name, @FilePath, @Length, @AccountId)";
-            _connection.Execute(sql, new { Id = id, Name = name, FilePath = filePath, Length = length, AccountId = accountId });
+            using (var transaction = _connection.BeginTransaction())
+            {
+                var sql = "INSERT INTO Document (Id, Name, FilePath, Length, AccountId) VALUES (@Id, @Name, @FilePath, @Length, @AccountId)";
+                try
+                {
+                    _connection.Execute(sql, documents, transaction);
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw ex;
+                }
+            }
         }
 
         public int GetCount(string tableName)
@@ -62,9 +99,6 @@ namespace SmartVault.DataGeneration.Infrastructure
             return _connection.ExecuteScalar<int>($"SELECT COUNT(*) FROM {tableName};");
         }
 
-        public void Dispose()
-        {
-            _connection?.Dispose();
-        }
+        public void Dispose() => _connection?.Dispose();
     }
 }

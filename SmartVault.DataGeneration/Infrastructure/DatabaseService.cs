@@ -43,6 +43,7 @@ namespace SmartVault.DataGeneration.Infrastructure
         {
             using (var transaction = _connection.BeginTransaction())
             {
+                //Parameterized Queries to prevent SQL injection and improve query performance by allowing SQL to cache query plans
                 var sql = "INSERT INTO User (Id, FirstName, LastName, DateOfBirth, AccountId, Username, Password) VALUES (@Id, @FirstName, @LastName, @DateOfBirth, @AccountId, @Username, @Password)";
                 try
                 {

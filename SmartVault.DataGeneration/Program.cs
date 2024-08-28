@@ -58,6 +58,8 @@ namespace SmartVault.DataGeneration
                 var documents = new List<dynamic>();
                 var documentNumber = 0;
 
+                //Batch Insert Operations
+
                 for (int i = 0; i < 100; i++)
                 {
                     var randomDay = RandomDay();

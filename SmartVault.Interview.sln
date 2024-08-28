@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartVault.DataGeneration",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartVault.Domain", "SmartVault.Domain\SmartVault.Domain.csproj", "{6730AB3E-0BFD-4746-80A6-6A9CE7B33F55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartVault.Test", "SmartVault.Test\SmartVault.Test.csproj", "{250D7E47-1E4E-47D4-9AC9-672C567B4F58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6730AB3E-0BFD-4746-80A6-6A9CE7B33F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6730AB3E-0BFD-4746-80A6-6A9CE7B33F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6730AB3E-0BFD-4746-80A6-6A9CE7B33F55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{250D7E47-1E4E-47D4-9AC9-672C567B4F58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{250D7E47-1E4E-47D4-9AC9-672C567B4F58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{250D7E47-1E4E-47D4-9AC9-672C567B4F58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{250D7E47-1E4E-47D4-9AC9-672C567B4F58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

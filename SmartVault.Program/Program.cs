@@ -1,4 +1,10 @@
-﻿namespace SmartVault.Program
+﻿using System.IO;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+
+namespace SmartVault.Program
 {
     partial class Program
     {
@@ -12,10 +18,9 @@
             WriteEveryThirdFileToFile(args[0]);
             GetAllFileSizes();
         }
-
         private static void GetAllFileSizes()
         {
-            // TODO: Implement functionality
+            
         }
 
         private static void WriteEveryThirdFileToFile(string accountId)

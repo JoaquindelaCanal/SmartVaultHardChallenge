@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using SmartVault.Domain.DTO;
 
 namespace SmartVault.Domain.Interfaces
 {
     public interface IFileRepository
     {
-        Task<IEnumerable<dynamic>> GetAllDocumentsAsync();
+        Task<IEnumerable<DocumentDTO>> GetAllDocumentsAsync();
+        Task<IEnumerable<DocumentDTO>> GetAllDocumentsByAccountAsync(int accountId);
+        Task<long> GetTotalFileSizeAsync();
     }
 }

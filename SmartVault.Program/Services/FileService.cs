@@ -13,7 +13,7 @@ using System.Data.Entity;
 
 namespace SmartVault.Program.Services
 {
-    internal class FileService : IFileService
+    public class FileService : IFileService
     {
         private readonly IFileRepository _fileRepository;
 
